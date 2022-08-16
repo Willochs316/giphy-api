@@ -1,0 +1,35 @@
+.gifs-main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  border-radius: 0px;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font: inherit;
+  position: relative;
+  width: 800px;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.gifs-image-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  position: relative;
+  vertical-align: baseline;
+  position: relative;
+}
+
+.gif_image {
+  color: rgb(255, 255, 255);
+  border-radius: 8px;
+  height: 210px;
+  width: 210px;
+}
