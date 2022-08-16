@@ -48,6 +48,10 @@ body::-webkit-scrollbar {
     display: none;
   }
 
+  .giphy_gif {
+    display: none;
+  }
+
   .gif_logo {
     display: block;
   }

@@ -12,9 +12,10 @@ const NavBar = ({ search, setSearch, handleSubmit, gif }) => {
     <div id='header-container'>
       <div id='navigationbar-container'>
         <img
+          className='giphy_gif'
           src={giphy_gif}
           alt='giphy_gif.gif'
-        width='100'
+          width='100'
         />
         <img
           className='gif_logo'
