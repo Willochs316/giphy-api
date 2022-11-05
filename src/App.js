@@ -11,7 +11,6 @@ const App = () => {
   const [isError, setIsError] = useState(false);
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(2);
-  const [noMore, setNoMore] = useState(true);
 
   useEffect(() => {
     try {
@@ -96,8 +95,6 @@ const App = () => {
         setCurrentPage={setCurrentPage}
         isError={isError}
         loadMoreData={loadMoreData}
-        noMore={noMore}
-        setNoMore={setNoMore}
       />
     </div>
   );

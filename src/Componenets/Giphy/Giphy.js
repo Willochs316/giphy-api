@@ -14,14 +14,12 @@ const Giphy = ({
   setCurrentPage,
   isError,
   loadMoreData,
-  noMore,
-  setNoMore,
 }) => {
   return !isError ? (
     <InfiniteScroll
       dataLength={items.length}
       next={loadMoreData}
-      hasMore={noMore}
+      hasMore={true}
       loader={<Spinner />}
     >
       <div className='gifs-main-container'>
