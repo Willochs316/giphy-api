@@ -297,3 +297,96 @@ li:hover {
   vertical-align: baseline;
   color: #00e6cc;
 }
+
+@media only screen and (max-width: 375px) {
+  #header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0px;
+    text-align: left;
+    margin: 0px;
+    border: 0px;
+    padding: 10px 0 0 0;
+    justify-content: center;
+    width: 321px;
+    position: relative;
+    z-index: 499;
+    min-height: 122px;
+  }
+
+  .navigation-list-container {
+    display: none;
+  }
+
+  .giphy_gif {
+    display: none;
+  }
+
+  .gif_logo {
+    display: block;
+  }
+
+  .upload-btn-container {
+    display: none;
+  }
+
+  .login-btn-container {
+    display: none;
+  }
+
+  .navigation-hash-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0px;
+    text-align: left;
+    list-style: none;
+    border-radius: 0px;
+    text-decoration: none;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    margin: 10px 0 15px 0;
+    position: relative;
+    width: 320px;
+    height: 80px;
+  }
+
+  .explore-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px;
+    font-family: nexablack, sans-serif;
+    position: relative;
+  }
+
+  .explore-contents {
+    letter-spacing: 0px;
+    list-style: none;
+    text-align: left;
+    font: inherit;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 1.45;
+    display: block;
+    margin-bottom: -6px;
+  }
+
+  .explore-gifs {
+    letter-spacing: 0px;
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    vertical-align: baseline;
+    color: #00e6cc;
+  }
+}

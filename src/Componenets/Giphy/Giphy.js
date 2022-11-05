@@ -1,32 +1,31 @@
 import React from 'react';
+import { FaRegTimesCircle } from 'react-icons/fa';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import Spinner from '../Spinner/Spinner';
 import './Giphy.css';
+import UserIcons from '../../Commons/Icons';
 
 const Giphy = ({
-  data,
-  setData,
+  items,
+  setItems,
   isLoading,
   setisLoading,
   currentPage,
   setCurrentPage,
-  loadMore,
+  isError,
+  loadMoreData,
+  noMore,
+  setNoMore,
 }) => {
-  React.useEffect(() => {
-    loadMore(setData, data);
-  }, [data, loadMore, setData]);
-
-  return (
+  return !isError ? (
     <InfiniteScroll
-      dataLength={data}
-      next={() => {
-        loadMore(setData, data);
-      }}
-      hasMore={true}
+      dataLength={items.length}
+      next={loadMoreData}
+      hasMore={noMore}
       loader={<Spinner />}
     >
       <div className='gifs-main-container'>
-        {data.map((gif) => (
+        {items.map((gif) => (
           <div
             className='gifs-image-container'
             key={Math.random()}
@@ -41,6 +40,11 @@ const Giphy = ({
         ))}
       </div>
     </InfiniteScroll>
+  ) : (
+    <div className='danger'>
+      <UserIcons className='danger-icon' icons={FaRegTimesCircle} />
+      <h4 className='error'>Error message!!</h4>
+    </div>
   );
 };
 

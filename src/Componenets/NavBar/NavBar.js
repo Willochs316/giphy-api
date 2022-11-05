@@ -1,4 +1,3 @@
-import Svgs from '../../Assets/svgs';
 import UserIcons from '../../Commons/Icons';
 import { FaEllipsisV, FaUser } from 'react-icons/fa';
 import './NavBar.css';
@@ -7,7 +6,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import giphy_gif from '../../Assets/png/giphy_gif.gif';
 import giphy_logo from '../../Assets/png/giphy_logo.gif';
 
-const NavBar = ({ search, setSearch, handleSubmit, gif }) => {
+const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
   return (
     <div id='header-container'>
       <div id='navigationbar-container'>
@@ -59,6 +58,7 @@ const NavBar = ({ search, setSearch, handleSubmit, gif }) => {
         search={search}
         setSearch={setSearch}
         handleSubmit={handleSubmit}
+        handleClick={handleClick}
       />
 
       <div className='navigation-hash-container'>

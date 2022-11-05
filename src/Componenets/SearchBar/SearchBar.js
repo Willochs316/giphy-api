@@ -4,7 +4,7 @@ import UserIcons from '../../Commons/Icons';
 import Input from '../../Commons/Input';
 import './SearchBar.css';
 
-const SearchBar = ({ search, setSearch, handleSubmit }) => {
+const SearchBar = ({ search, setSearch, handleSubmit, handleClick }) => {
   const handleSearchChange = (event) => {
     const value = event.target.value;
     setSearch(value);
@@ -25,7 +25,7 @@ const SearchBar = ({ search, setSearch, handleSubmit }) => {
           <UserIcons
             className='fasearch'
             icons={HiSearch}
-            onClick={handleSubmit}
+            onClick={handleClick}
           />
         </div>
       </form>
