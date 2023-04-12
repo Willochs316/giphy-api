@@ -1,10 +1,10 @@
-import UserIcons from "../../commones/Icons";
+import UserIcons from "../../commons/Icons";
 import { FaEllipsisV, FaUser } from "react-icons/fa";
 import "./NavBar.css";
-import Button from "../../commones/Button";
+import Button from "../../commons/Button";
 import SearchBar from "../SearchBar/SearchBar";
-import GiphyGif from "../../resources/png/giphy-gif.gif";
-import GiphyLogo from "../../resources/png/giphy-logo.gif";
+import GiphyGif from "../../assets/png/giphy-gif.gif";
+import GiphyLogo from "../../assets/png/giphy-logo.gif";
 
 const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
   return (
