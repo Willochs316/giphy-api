@@ -37,19 +37,20 @@
 .danger {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 210px;
+  justify-content: center;
+  width: 100%;
 }
 
 .danger-icon {
   font-size: 24px;
+  color: red;
 }
 
 .error {
   color: rgb(255, 255, 255);
-  font-size: 24px;
+  font-size: 18px;
+  margin-left: 8px;
 }
-
 
 @media only screen and (max-width: 375px) {
   .gifs-main-container {

@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
-import Giphy from './Componenets/Giphy/Giphy';
-import NavBar from './Componenets/NavBar/NavBar';
-import axios from 'axios';
-import './App.css';
-import Spinner from './Componenets/Spinner/Spinner';
+import { useEffect, useState } from "react";
+import Giphy from "./components/Giphy/Giphy";
+import NavBar from "./components/NavBar/NavBar";
+import axios from "axios";
+import "./App.css";
+import Spinner from "./components/Spinner/Spinner";
 
 const App = () => {
-  const [items, setItems] = useState([]);
+  const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(2);
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const App = () => {
           `https://api.giphy.com/v1/gifs/trending?api_key=deokzgUjxm6QHQdp3H3aca1LSZcCpucc&q={search}&_page=1&_limit=25&offset=0&rating=Y&lang=en`
         );
 
-        setItems(results.data.data);
+        setData(results.data.data);
 
         setIsLoading(false);
       };
@@ -34,8 +34,24 @@ const App = () => {
   }, []);
 
   const loadMoreData = async () => {
-    setItems([...items, ...items]);
-    setCurrentPage(currentPage + 1);
+    setIsLoading(true);
+
+    try {
+      const results = await axios.get(
+        `https://api.giphy.com/v1/gifs/trending?api_key=deokzgUjxm6QHQdp3H3aca1LSZcCpucc&q=${search}&_page=${currentPage}&_limit=25&offset=${
+          (currentPage - 1) * 25
+        }&rating=Y&lang=en`
+      );
+
+      // Append new data to the existing array
+      setData([...data, ...results.data.data]);
+      setCurrentPage(currentPage + 1);
+      setIsLoading(false);
+    } catch (error) {
+      setIsError(true);
+      setIsLoading(false);
+      console.log(error);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -43,15 +59,15 @@ const App = () => {
     setIsError(false);
     setIsLoading(true);
     try {
-      const results = await axios.get('https://api.giphy.com/v1/gifs/search?', {
+      const results = await axios.get("https://api.giphy.com/v1/gifs/search?", {
         params: {
-          api_key: 'deokzgUjxm6QHQdp3H3aca1LSZcCpucc',
+          api_key: "deokzgUjxm6QHQdp3H3aca1LSZcCpucc",
           q: search,
         },
       });
 
-      setItems(results.data.data);
-      setSearch('');
+      setData(results.data.data);
+      setSearch("");
     } catch (error) {
       setIsError(true);
     }
@@ -62,15 +78,15 @@ const App = () => {
     setIsError(false);
     setIsLoading(true);
     try {
-      const results = await axios.get('https://api.giphy.com/v1/gifs/search?', {
+      const results = await axios.get("https://api.giphy.com/v1/gifs/search?", {
         params: {
-          api_key: 'deokzgUjxm6QHQdp3H3aca1LSZcCpucc',
+          api_key: "deokzgUjxm6QHQdp3H3aca1LSZcCpucc",
           q: search,
         },
       });
 
-      setItems(results.data.data);
-      setSearch('');
+      setData(results.data.data);
+      setSearch("");
     } catch (error) {
       setIsError(true);
     }
@@ -80,7 +96,7 @@ const App = () => {
   return isLoading ? (
     <Spinner />
   ) : (
-    <div className='giphy-container'>
+    <div className="giphy-container">
       <NavBar
         search={search}
         setSearch={setSearch}
@@ -88,14 +104,7 @@ const App = () => {
         handleClick={handleClick}
       />
 
-      <Giphy
-        items={items}
-        setItems={setItems}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        isError={isError}
-        loadMoreData={loadMoreData}
-      />
+      <Giphy data={data} isError={isError} loadMoreData={loadMoreData} />
     </div>
   );
 };
