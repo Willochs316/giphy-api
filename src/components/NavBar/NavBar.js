@@ -1,7 +1,7 @@
-import UserIcons from "../../commons/Icons";
+import UserIcons from "../../commones/Icons";
 import { FaEllipsisV, FaUser } from "react-icons/fa";
 import "./NavBar.css";
-import Button from "../../commons/Button";
+import Button from "../../commones/Button";
 import SearchBar from "../SearchBar/SearchBar";
 import GiphyGif from "../../resources/png/giphy-gif.gif";
 import GiphyLogo from "../../resources/png/giphy-logo.gif";

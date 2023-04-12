@@ -1,7 +1,7 @@
 import React from "react";
 import { HiSearch } from "react-icons/hi";
-import UserIcons from "../../commons/Icons";
-import Input from "../../commons/Input";
+import UserIcons from "../../commones/Icons";
+import Input from "../../commones/Input";
 import "./SearchBar.css";
 
 const SearchBar = ({ search, setSearch, handleSubmit, handleClick }) => {

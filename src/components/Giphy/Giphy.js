@@ -3,7 +3,7 @@ import { FaRegTimesCircle } from "react-icons/fa";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "../Spinner/Spinner";
 import "./Giphy.css";
-import UserIcons from "../../commons/Icons";
+import UserIcons from "../../commones/Icons";
 
 const Giphy = ({ data, isError, loadMoreData }) => {
   return (
