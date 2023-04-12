@@ -3,23 +3,23 @@ import { FaEllipsisV, FaUser } from "react-icons/fa";
 import "./NavBar.css";
 import Button from "../../commons/Button";
 import SearchBar from "../SearchBar/SearchBar";
-import giphy_gif from "../../assets/png/giphy_gif.gif";
-import giphy_logo from "../../assets/png/giphy_logo.gif";
+import GiphyGif from "../../assets/png/giphy-gif.gif";
+import GiphyLogo from "../../assets/png/giphy-logo.gif";
 
 const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
   return (
     <div id="header-container">
       <div id="navigationbar-container">
         <img
-          className="giphy_gif"
-          src={giphy_gif}
-          alt="giphy_gif.gif"
+          className="giphy-gif"
+          src={GiphyGif}
+          alt="giphy-gif.gif"
           width="100"
         />
         <img
           className="gif_logo"
-          src={giphy_logo}
-          alt="giphy_gif.gif"
+          src={GiphyLogo}
+          alt="giphy-gif.gif"
           width="320"
           height="80"
         />
