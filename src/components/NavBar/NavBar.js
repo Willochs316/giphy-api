@@ -3,8 +3,8 @@ import { FaEllipsisV, FaUser } from "react-icons/fa";
 import "./NavBar.css";
 import Button from "../../commons/Button";
 import SearchBar from "../SearchBar/SearchBar";
-import GiphyGif from "../../assets/png/giphy-gif.gif";
-import GiphyLogo from "../../assets/png/giphy-logo.gif";
+import GiphyGif from "../../resources/png/giphy-gif.gif";
+import GiphyLogo from "../../resources/png/giphy-logo.gif";
 
 const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
   return (
