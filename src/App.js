@@ -69,6 +69,8 @@ const App = () => {
     setIsLoading(false);
   };
 
+  <>{console.log}</>
+
   const handleClick = async () => {
     setIsError(false);
     setIsLoading(true);
