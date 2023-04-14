@@ -19,7 +19,7 @@ const App = () => {
         setIsLoading(true);
 
         const results = await axios.get(
-          `https://api.giphy.com/v1/gifs/trending?api_key=deokzgUjxm6QHQdp3H3aca1LSZcCpucc&q={search}&_page=1&_limit=25&offset=0&rating=Y&lang=en`
+          `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_API_KEY}&q={search}&_page=1&_limit=25&offset=0&rating=Y&lang=en`
         );
 
         setData(results.data.data);
@@ -34,19 +34,14 @@ const App = () => {
   }, []);
 
   const loadMoreData = async () => {
-    setIsLoading(true);
-
     try {
       const results = await axios.get(
-        `https://api.giphy.com/v1/gifs/trending?api_key=deokzgUjxm6QHQdp3H3aca1LSZcCpucc&q=${search}&_page=${currentPage}&_limit=25&offset=${
-          (currentPage - 1) * 25
-        }&rating=Y&lang=en`
+        `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_API_KEY}&q={search}&_page=1&_limit=25&offset=0&rating=Y&lang=en`
       );
 
       // Append new data to the existing array
       setData([...data, ...results.data.data]);
       setCurrentPage(currentPage + 1);
-      setIsLoading(false);
     } catch (error) {
       setIsError(true);
       setIsLoading(false);
@@ -61,7 +56,7 @@ const App = () => {
     try {
       const results = await axios.get("https://api.giphy.com/v1/gifs/search?", {
         params: {
-          api_key: "deokzgUjxm6QHQdp3H3aca1LSZcCpucc",
+          api_key: `${process.env.REACT_APP_API_KEY}`,
           q: search,
         },
       });
@@ -80,7 +75,7 @@ const App = () => {
     try {
       const results = await axios.get("https://api.giphy.com/v1/gifs/search?", {
         params: {
-          api_key: "deokzgUjxm6QHQdp3H3aca1LSZcCpucc",
+          api_key: `${process.env.REACT_APP_API_KEY}`,
           q: search,
         },
       });
