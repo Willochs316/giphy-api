@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-div > h3 {
+.circle {
   width: 3vw;
   height: 3vw;
   border-radius: 100%;

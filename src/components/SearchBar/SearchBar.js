@@ -11,7 +11,7 @@ const SearchBar = ({ search, setSearch, handleSubmit, handleClick }) => {
   };
 
   return (
-    <div className="navigationbar-search-container">
+    <div className="navbar-search-container">
       <form id="form-input-content" onSubmit={handleSubmit}>
         <Input
           className="input-search"

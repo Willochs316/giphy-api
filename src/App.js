@@ -5,6 +5,9 @@ import axios from "axios";
 import "./App.css";
 import Spinner from "./components/Spinner/Spinner";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+const API_URL = "https://api.giphy.com/v1/gifs/";
+
 const App = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -13,33 +16,31 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    try {
-      const getGiphy = async () => {
-        setIsError(false);
-        setIsLoading(true);
+    const fetchGifs = async () => {
+      setIsError(false);
+      setIsLoading(true);
 
-        const results = await axios.get(
-          `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_API_KEY}&q={search}&_page=1&_limit=25&offset=0&rating=Y&lang=en`
-        );
+      try {
+        const endpoint = `${API_URL}trending?api_key=${API_KEY}&_limit=25&rating=Y&lang=en`;
+        const results = await axios.get(endpoint);
 
         setData(results.data.data);
+      } catch (error) {
+        setIsError(true);
+        console.error(error);
+      }
 
-        setIsLoading(false);
-      };
-      getGiphy();
-    } catch (error) {
-      setIsError(true);
-      console.log(error);
-    }
+      setIsLoading(false);
+    };
+
+    fetchGifs();
   }, []);
 
   const loadMoreData = async () => {
     try {
       const endpoint = `https://api.giphy.com/v1/gifs/${
         search ? "search" : "trending"
-      }?api_key=${
-        process.env.REACT_APP_API_KEY
-      }&q=${search}&_page=${currentPage}&_limit=25&offset=0&rating=Y&lang=en`;
+      }?api_key=${API_KEY}&q=${search}&_page=${currentPage}&_limit=25&offset=0&rating=Y&lang=en`;
 
       const results = await axios.get(endpoint);
       setData((prevData) => [...prevData, ...results.data.data]);
@@ -55,44 +56,40 @@ const App = () => {
     e.preventDefault();
     setIsError(false);
     setIsLoading(true);
+
     try {
-      const results = await axios.get("https://api.giphy.com/v1/gifs/search?", {
-        params: {
-          api_key: `${process.env.REACT_APP_API_KEY}`,
-          q: search,
-        },
-      });
+      const endpoint = `${API_URL}search?api_key=${API_KEY}&q=${search}&_limit=25&rating=Y&lang=en`;
+      const results = await axios.get(endpoint);
 
       setData(results.data.data);
       setSearch("");
     } catch (error) {
       setIsError(true);
+      console.error(error);
     }
+
     setIsLoading(false);
   };
 
   const handleClick = async () => {
     setIsError(false);
     setIsLoading(true);
+
     try {
-      const results = await axios.get("https://api.giphy.com/v1/gifs/search?", {
-        params: {
-          api_key: `${process.env.REACT_APP_API_KEY}`,
-          q: search,
-        },
-      });
+      const endpoint = `${API_URL}search?api_key=${API_KEY}&q=${search}&_limit=25&rating=Y&lang=en`;
+      const results = await axios.get(endpoint);
 
       setData(results.data.data);
       setSearch("");
     } catch (error) {
       setIsError(true);
+      console.error(error);
     }
+
     setIsLoading(false);
   };
 
-  return isLoading ? (
-    <Spinner />
-  ) : (
+  return (
     <div className="giphy-container">
       <NavBar
         search={search}
@@ -101,11 +98,11 @@ const App = () => {
         handleClick={handleClick}
       />
 
-      <Giphy
-        data={data}
-        isError={isError}
-        loadMoreData={() => loadMoreData(search)}
-      />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <Giphy data={data} isError={isError} loadMoreData={loadMoreData} />
+      )}
     </div>
   );
 };
