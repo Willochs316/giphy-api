@@ -46,7 +46,6 @@ body::-webkit-scrollbar {
     min-height: 212px;
     margin: 0 auto;
     overflow: hidden;
-    background: red;
   }
 }
 

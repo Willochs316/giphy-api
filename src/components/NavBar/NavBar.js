@@ -20,8 +20,7 @@ const NavBar = ({ search, setSearch, handleSubmit, handleClick }) => {
           className="gif-logo"
           src={GiphyLogo}
           alt="giphy-gif.gif"
-          width="320"
-          height="80"
+          object-fit="contain"
         />
 
         <div className="navigation-list-container">

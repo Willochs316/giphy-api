@@ -10,7 +10,7 @@
   border: 0px;
   padding: 10px 0 0 0;
   justify-content: center;
-  width: 670px;
+  width: 100%;
   position: relative;
   z-index: 499;
 }
@@ -235,11 +235,10 @@ li:hover {
   text-align: left;
   text-decoration: none;
   padding: 0px;
-  font: inherit;
+  font-size: inherit;
   margin: 10px 0 15px 0;
   position: relative;
   width: 100%;
-  height: 80px;
 }
 
 .explore-contents {
@@ -260,14 +259,14 @@ li:hover {
   color: #00e6cc;
 }
 
-@media screen and (max-width: 667px) {
+@media only screen and (min-width: 414px) and (max-width: 667px) {
   #header-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     color: rgb(255, 255, 255);
-    width: 616px;
+    width: 400px;
   }
 
   .navigation-list-container {
@@ -278,56 +277,25 @@ li:hover {
     display: none;
   }
 
-  .upload-btn-container {
+  .gif-logo {
+    display: block;
+    width: 380px;
+  }
+
+  .upload-container {
     display: none;
   }
 
-  .login-btn-container {
+  .login-container {
     display: none;
-  }
-
-  .navigation-hash-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    color: rgb(255, 255, 255);
-    letter-spacing: 0px;
-    text-align: left;
-    list-style: none;
-    border-radius: 0px;
-    text-decoration: none;
-    padding: 0px;
-    border: 0px;
-    font: inherit;
-    margin: 10px 0 15px 0;
-    position: relative;
-    width: 100%;
-    height: 80px;
   }
 
   .explore-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    font-family: nexablack, sans-serif;
-    position: relative;
-  }
-
-  .explore-contents {
-    display: flex;
-    font-size: inherit;
+    width: 380px;
   }
 
   .explore-gifs {
-    letter-spacing: 0px;
-    text-align: left;
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
-    font: inherit;
-    vertical-align: baseline;
     color: #00e6cc;
   }
 }
@@ -339,16 +307,7 @@ li:hover {
     align-items: center;
     justify-content: space-between;
     color: rgb(255, 255, 255);
-    letter-spacing: 0px;
-    text-align: left;
-    margin: 0px;
-    border: 0px;
-    padding: 10px 0 0 0;
-    justify-content: center;
-    width: 321px;
-    position: relative;
-    z-index: 499;
-    min-height: 122px;
+    width: 320px;
   }
 
   .navigation-list-container {
@@ -359,66 +318,44 @@ li:hover {
     display: none;
   }
 
-  .gif_logo {
+  .upload-container {
+    display: none;
+  }
+
+  .login-container {
+    display: none;
+  }
+
+  .gif-logo {
     display: block;
+    width: 295px;
   }
 
-  .upload-btn-container {
+  .upload-container {
     display: none;
   }
 
-  .login-btn-container {
+  .login-container {
     display: none;
-  }
-
-  .navigation-hash-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    color: rgb(255, 255, 255);
-    letter-spacing: 0px;
-    text-align: left;
-    list-style: none;
-    border-radius: 0px;
-    text-decoration: none;
-    padding: 0px;
-    border: 0px;
-    font: inherit;
-    margin: 10px 0 15px 0;
-    position: relative;
-    width: 320px;
-    height: 80px;
   }
 
   .explore-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 320px;
-    font-family: nexablack, sans-serif;
-    position: relative;
+    width: 295px;
   }
 
   .explore-contents {
-    letter-spacing: 0px;
-    list-style: none;
     text-align: left;
-    font: inherit;
     color: #fff;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 800;
-    line-height: 1.45;
     display: block;
-    margin-bottom: -6px;
   }
 
   .explore-gifs {
-    letter-spacing: 0px;
     text-align: left;
     margin: 0px;
     padding: 0px;
-    border: 0px;
     font: inherit;
     vertical-align: baseline;
     color: #00e6cc;
