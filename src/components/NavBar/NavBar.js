@@ -6,7 +6,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import GiphyGif from "../../assets/png/giphy-gif.gif";
 import GiphyLogo from "../../assets/png/giphy-logo.gif";
 
-const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
+const NavBar = ({ search, setSearch, handleSubmit, handleClick }) => {
   return (
     <div id="header-container">
       <div id="navigationbar-container">
@@ -26,11 +26,15 @@ const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
 
         <div className="navigation-list-container">
           <ul>
-            <li>Reactions</li>
-            <li>Entertainment</li>
-            <li>Sports</li>
-            <li>Stickers</li>
-            <li>Artists</li>
+            {[
+              "Reactions",
+              "Entertainment",
+              "Sports",
+              "Stickers",
+              "Artists",
+            ].map((item) => (
+              <li key={item}>{item}</li>
+            ))}
 
             <li>
               <UserIcons icons={FaEllipsisV} />
@@ -59,13 +63,11 @@ const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
         handleClick={handleClick}
       />
 
-    
-        <div className="explore-container">
-          <p className="explore-contents">
-            Explore <span className="explore-gifs">explore</span> GIFs
-          </p>
-        </div>
-
+      <div className="explore-container">
+        <p className="explore-contents">
+          Explore <span className="explore-gifs">explore</span> GIFs
+        </p>
+      </div>
     </div>
   );
 };
