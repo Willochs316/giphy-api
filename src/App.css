@@ -6,7 +6,7 @@
 
 body {
   background-color: #0c0d0c;
-  font-family: interface, 'Helvetica Neue', helvetica, sans-serif;
+  font-family: interface, "Helvetica Neue", helvetica, sans-serif;
 }
 
 body::-webkit-scrollbar {
@@ -23,6 +23,31 @@ body::-webkit-scrollbar {
   min-height: 212px;
   margin: 0 auto;
   overflow: hidden;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 667px) {
+  body {
+    width: 100%;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  .giphy-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    width: 100%;
+    min-height: 212px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: red;
+  }
 }
 
 @media only screen and (max-width: 375px) {

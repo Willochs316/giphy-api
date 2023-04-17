@@ -1,4 +1,4 @@
-.gifs-main-container {
+.gifs-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@
   position: relative;
 }
 
-.gif_image {
+.gif-image {
   color: rgb(255, 255, 255);
   border-radius: 8px;
   height: 210px;

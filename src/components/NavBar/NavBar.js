@@ -17,7 +17,7 @@ const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
           width="100"
         />
         <img
-          className="gif_logo"
+          className="gif-logo"
           src={GiphyLogo}
           alt="giphy-gif.gif"
           width="320"
@@ -38,19 +38,17 @@ const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
           </ul>
         </div>
 
-        <div className="upload-btn-container">
+        <div className="upload-container">
           <Button className="upload-btn" title="upload" />
           <Button className="create-btn" title="create" />
         </div>
 
-        <div className="login-btn-container">
+        <div className="login-container">
           <div className="fauser">
             <UserIcons icons={FaUser} />
           </div>
 
-          <div className="login-container">
-            <Button className="log-in-btn" title="Log in" />
-          </div>
+          <Button className="login-btn" title="Log in" />
         </div>
       </div>
 
@@ -61,13 +59,13 @@ const NavBar = ({ search, setSearch, handleSubmit, handleClick, gif }) => {
         handleClick={handleClick}
       />
 
-      <div className="navigation-hash-container">
+    
         <div className="explore-container">
           <p className="explore-contents">
             Explore <span className="explore-gifs">explore</span> GIFs
           </p>
         </div>
-      </div>
+
     </div>
   );
 };

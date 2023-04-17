@@ -22,17 +22,17 @@ const Giphy = ({ data, isError, loadMoreData }) => {
           hasMore={true}
           loader={<Spinner />}
         >
-          <div className="gifs-main-container">
-            {data.map((gif) => (
+          <div className="gifs-container">
+            {data.map((gif, index) => (
               <div
                 className="gifs-image-container"
-                key={gif.id}
+                key={index}
                 onClick={() => window.open(gif.images.preview_gif.url)}
               >
                 <img
-                  className="gif_image"
+                  className="gif-image"
                   src={gif.images.fixed_height.url}
-                  alt="gif_image"
+                  alt="gif"
                 />
               </div>
             ))}

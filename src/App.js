@@ -35,13 +35,15 @@ const App = () => {
 
   const loadMoreData = async () => {
     try {
-      const results = await axios.get(
-        `https://api.giphy.com/v1/gifs/trending?api_key=${process.env.REACT_APP_API_KEY}&q={search}&_page=1&_limit=25&offset=0&rating=Y&lang=en`
-      );
+      const endpoint = `https://api.giphy.com/v1/gifs/${
+        search ? "search" : "trending"
+      }?api_key=${
+        process.env.REACT_APP_API_KEY
+      }&q=${search}&_page=${currentPage}&_limit=25&offset=0&rating=Y&lang=en`;
 
-      // Append new data to the existing array
-      setData([...data, ...results.data.data]);
-      setCurrentPage(currentPage + 1);
+      const results = await axios.get(endpoint);
+      setData((prevData) => [...prevData, ...results.data.data]);
+      setCurrentPage((prevPage) => prevPage + 1);
     } catch (error) {
       setIsError(true);
       setIsLoading(false);
@@ -99,7 +101,11 @@ const App = () => {
         handleClick={handleClick}
       />
 
-      <Giphy data={data} isError={isError} loadMoreData={loadMoreData} />
+      <Giphy
+        data={data}
+        isError={isError}
+        loadMoreData={() => loadMoreData(search)}
+      />
     </div>
   );
 };
