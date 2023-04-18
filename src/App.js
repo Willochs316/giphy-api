@@ -40,15 +40,21 @@ const App = () => {
     try {
       const endpoint = `https://api.giphy.com/v1/gifs/${
         search ? "search" : "trending"
-      }?api_key=${API_KEY}&q=${search}&_page=${currentPage}&_limit=25&offset=0&rating=Y&lang=en`;
+      }?api_key=${API_KEY}&q=${search}&_page=${currentPage}&_limit=25&rating=Y&lang=en`;
 
       const results = await axios.get(endpoint);
-      setData((prevData) => [...prevData, ...results.data.data]);
+      const newData = search
+        ? results.data.data
+        : [...data, ...results.data.data];
+
+      setData((prevData) => [...prevData, ...newData]);
       setCurrentPage((prevPage) => prevPage + 1);
     } catch (error) {
-      setIsError(true);
-      setIsLoading(false);
+      setData([]);
       console.log(error);
+    } finally {
+      setIsLoading(false);
+      setIsError(false);
     }
   };
 
