@@ -12,7 +12,7 @@ const App = () => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [search, setSearch] = useState("");
+  const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
@@ -21,9 +21,15 @@ const App = () => {
       setIsLoading(true);
 
       try {
-        const endpoint = `${API_URL}trending?api_key=${API_KEY}&_limit=25&rating=Y&lang=en`;
-        const results = await axios.get(endpoint);
+        let endpoint = "";
 
+        if (searchValue) {
+          endpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=1&offset=0&rating=Y&lang=en`;
+        } else {
+          endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&rating=Y&lang=en`;
+        }
+
+        const results = await axios.get(endpoint);
         setData(results.data.data);
       } catch (error) {
         setIsError(true);
@@ -34,18 +40,69 @@ const App = () => {
     };
 
     fetchGifs();
-  }, []);
+  }, [searchValue]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+
+      const searchEndpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=1&offset=0&rating=Y&lang=en`;
+      // const searchEndpoint = `${API_URL}search?api_key=${API_KEY}&q=${searchValue}&_limit=25&rating=Y&lang=en`;
+      const searchResults = await axios.get(searchEndpoint);
+
+      const filteredResults = searchResults.data.data.filter((result) =>
+        result.title.toLowerCase().includes(searchValue.toLowerCase())
+      );
+
+      setData(filteredResults);
+      setSearchValue("");
+    } catch (error) {
+      console.error(error);
+      setIsError("An error occurred. Please try again later.");
+    }
+
+    setIsLoading(false);
+  };
+
+  const handleClick = async () => {
+    setIsLoading(true);
+
+    try {
+      const searchEndpoint = `${API_URL}search?api_key=${API_KEY}&q=${searchValue}&_limit=25&rating=Y&lang=en`;
+      const searchResults = await axios.get(searchEndpoint);
+
+      const filteredResults = searchResults.data.data.filter((result) =>
+        result.title.toLowerCase().includes(searchValue.toLowerCase())
+      );
+
+      setData(filteredResults);
+      setSearchValue("");
+    } catch (error) {
+      console.error(error);
+      setIsError("An error occurred. Please try again later.");
+    }
+
+    setIsLoading(false);
+  };
 
   const loadMoreData = async () => {
     try {
-      const endpoint = `https://api.giphy.com/v1/gifs/${
-        search ? "search" : "trending"
-      }?api_key=${API_KEY}&q=${search}&_page=${currentPage}&_limit=25&rating=Y&lang=en`;
+      let endpoint = "";
+
+      if (searchValue) {
+        endpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=${
+          currentPage * 25
+        }&rating=Y&lang=en`;
+      } else {
+        endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=${
+          currentPage * 25
+        }&rating=Y&lang=en`;
+      }
 
       const results = await axios.get(endpoint);
-      const newData = search
-        ? results.data.data
-        : [...data, ...results.data.data];
+      const newData = results.data.data;
 
       setData((prevData) => [...prevData, ...newData]);
       setCurrentPage((prevPage) => prevPage + 1);
@@ -58,48 +115,11 @@ const App = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsError(false);
-    setIsLoading(true);
-
-    try {
-      const endpoint = `${API_URL}search?api_key=${API_KEY}&q=${search}&_limit=25&rating=Y&lang=en`;
-      const results = await axios.get(endpoint);
-
-      setData(results.data.data);
-      setSearch("");
-    } catch (error) {
-      setIsError(true);
-      console.error(error);
-    }
-
-    setIsLoading(false);
-  };
-
-  const handleClick = async () => {
-    setIsError(false);
-    setIsLoading(true);
-
-    try {
-      const endpoint = `${API_URL}search?api_key=${API_KEY}&q=${search}&_limit=25&rating=Y&lang=en`;
-      const results = await axios.get(endpoint);
-
-      setData(results.data.data);
-      setSearch("");
-    } catch (error) {
-      setIsError(true);
-      console.error(error);
-    }
-
-    setIsLoading(false);
-  };
-
   return (
     <div className="giphy-container">
       <NavBar
-        search={search}
-        setSearch={setSearch}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
         handleSubmit={handleSubmit}
         handleClick={handleClick}
       />

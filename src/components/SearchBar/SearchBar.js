@@ -4,10 +4,15 @@ import UserIcons from "../../commons/Icons";
 import Input from "../../commons/Input";
 import "./SearchBar.css";
 
-const SearchBar = ({ search, setSearch, handleSubmit, handleClick }) => {
+const SearchBar = ({
+  searchValue,
+  setSearchValue,
+  handleSubmit,
+  handleClick,
+}) => {
   const handleSearchChange = (event) => {
     const value = event.target.value;
-    setSearch(value);
+    setSearchValue(value);
   };
 
   return (
@@ -16,7 +21,7 @@ const SearchBar = ({ search, setSearch, handleSubmit, handleClick }) => {
         <Input
           className="input-search"
           type="text"
-          value={search}
+          value={searchValue}
           name="text"
           onChange={handleSearchChange}
           placeholder="search..."
