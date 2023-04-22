@@ -25,23 +25,19 @@ const Giphy = ({ data, isError, loadMoreData }) => {
           loader={<Spinner />}
         >
           <div className="gifs-container">
-            {data && data.length > 0 ? (
-              data.map((gif, index) => (
-                <div
-                  className="gif-image-container"
-                  key={index}
-                  onClick={() => window.open(gif.images.preview_gif.url)}
-                >
-                  <img
-                    className="gif-image"
-                    src={gif.images.fixed_height.url}
-                    alt="gif"
-                  />
-                </div>
-              ))
-            ) : (
-              <p>No GIFs found.</p>
-            )}
+            {data.map((gif, index) => (
+              <div
+                className="gif-image-container"
+                key={index}
+                onClick={() => window.open(gif.images.preview_gif.url)}
+              >
+                <img
+                  className="gif-image"
+                  src={gif.images.fixed_height.url}
+                  alt="gif"
+                />
+              </div>
+            ))}
           </div>
         </InfiniteScroll>
       )}

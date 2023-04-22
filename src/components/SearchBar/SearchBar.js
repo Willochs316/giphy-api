@@ -10,25 +10,21 @@ const SearchBar = ({
   handleSubmit,
   handleClick,
 }) => {
-  const handleSearchChange = (event) => {
-    const value = event.target.value;
-    setSearchValue(value);
-  };
-
   return (
-    <div className="navbar-search-container">
-      <form id="form-input-content" onSubmit={handleSubmit}>
+    <div className="search-bar-container">
+      <form className="search-form" onSubmit={handleSubmit}>
         <Input
-          className="input-search"
+          id="search"
+          className="search-input"
           type="text"
           value={searchValue}
-          name="text"
-          onChange={handleSearchChange}
-          placeholder="search..."
+          name="search-input"
+          onChange={(event) => setSearchValue(event.target.value)}
+          placeholder="Search..."
         />
         <div className="search-icon-container">
           <UserIcons
-            className="fasearch"
+            className="search-icon"
             icons={HiSearch}
             onClick={handleClick}
           />
