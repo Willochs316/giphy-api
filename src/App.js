@@ -3,9 +3,9 @@ import axios from "axios";
 import Giphy from "./components/Giphy/Giphy";
 import NavBar from "./components/NavBar/NavBar";
 import Spinner from "./components/Spinner/Spinner";
-import "./App.css";
 import UserIcons from "./commons/Icons";
 import { FaRegWindowClose } from "react-icons/fa";
+import "./App.css";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = "https://api.giphy.com/v1/gifs/";
@@ -28,7 +28,7 @@ const App = () => {
         if (searchValue) {
           endpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=0&rating=Y&lang=en`;
         } else {
-          endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&rating=Y&lang=en`;
+          endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=0&rating=Y&lang=en`;
         }
 
         const results = await axios.get(endpoint);
