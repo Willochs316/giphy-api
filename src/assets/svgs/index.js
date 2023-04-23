@@ -1,6 +1,6 @@
-import { ReactComponent as GiphyUpload  } from './giphy_upload_emty_state.svg'
+import { ReactComponent as GiphyLogo } from "./giphy-logo.svg";
 
 const Svgs = {
-  GiphyUpload
-}
-export default Svgs
+  GiphyLogo,
+};
+export default Svgs;

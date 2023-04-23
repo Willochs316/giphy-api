@@ -3,23 +3,22 @@ import { FaEllipsisV, FaUser } from "react-icons/fa";
 import "./NavBar.css";
 import Button from "../../commons/Button";
 import SearchBar from "../SearchBar/SearchBar";
-import GiphyGif from "../../assets/png/giphy-gif.gif";
+import GiphyGif from "../../assets/png/giphy-logo.gif";
 import GiphyLogo from "../../assets/png/giphy-logo.gif";
+import Svgs from "../../assets/svgs";
 
 const NavBar = ({ searchTerm, setSearchTerm, handleSubmit, handleClick }) => {
   return (
     <div id="header-container">
       <div id="navigationbar-container">
-        <img
-          className="giphy-gif"
-          src={GiphyGif}
-          alt="giphy-gif.gif"
-          width="100"
-        />
+        <a href="/" target="/" className="logo-container">
+          <Svgs.GiphyLogo className="giphy-logo" />
+        </a>
+
         <img
           className="gif-logo"
           src={GiphyLogo}
-          alt="giphy-gif.gif"
+          alt="giphy-logo.gif"
           object-fit="contain"
         />
 
@@ -32,27 +31,33 @@ const NavBar = ({ searchTerm, setSearchTerm, handleSubmit, handleClick }) => {
               "Stickers",
               "Artists",
             ].map((item) => (
-              <li key={item}>{item}</li>
+              <li className="menu-item-container" key={item}>
+                <a target="_blank" className="menu-link" href="/">
+                  {item}
+                </a>
+              </li>
             ))}
 
-            <li>
-              <UserIcons icons={FaEllipsisV} />
+            <li className="menu-ellipsis-container">
+              <a target="_blank" className="menu-link" href="/">
+                <UserIcons icons={FaEllipsisV} />
+              </a>
             </li>
           </ul>
         </div>
 
-        <div className="upload-container">
+        {/* <div className="upload-container">
           <Button className="upload-btn" title="upload" />
           <Button className="create-btn" title="create" />
-        </div>
+        </div> */}
 
-        <div className="login-container">
+        {/* <div className="login-container">
           <div className="fauser">
             <UserIcons icons={FaUser} />
           </div>
 
           <Button className="login-btn" title="Log in" />
-        </div>
+        </div> */}
       </div>
 
       <SearchBar
