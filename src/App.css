@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #0c0d0c;
+  background-color: #121212;
   font-family: interface, "Helvetica Neue", helvetica, sans-serif;
 }
 
@@ -20,9 +20,10 @@ body::-webkit-scrollbar {
   justify-content: center;
   font-size: 12px;
   width: 670px;
+  width: 847px;
   min-height: 212px;
   margin: 0 auto;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .error-container {

@@ -8,6 +8,18 @@ import GiphyLogo from "../../assets/png/giphy-logo.gif";
 import Svgs from "../../assets/svgs";
 
 const NavBar = ({ searchTerm, setSearchTerm, handleSubmit, handleClick }) => {
+  const menuItems = [
+    { title: "Reactions" },
+    { title: "Entertainment" },
+    { title: "Sports" },
+    { title: "Stickers" },
+    { title: "Artists" },
+    {
+      title: <UserIcons icons={FaEllipsisV} />,
+      className: "menu-ellipsis-container",
+    },
+  ];
+
   return (
     <div id="header-container">
       <div id="navigationbar-container">
@@ -24,32 +36,32 @@ const NavBar = ({ searchTerm, setSearchTerm, handleSubmit, handleClick }) => {
 
         <div className="navigation-list-container">
           <ul>
-            {[
-              "Reactions",
-              "Entertainment",
-              "Sports",
-              "Stickers",
-              "Artists",
-            ].map((item) => (
-              <li className="menu-item-container" key={item}>
+            {menuItems.map((item, index) => (
+              <li
+                className={
+                  item === "UserIcons"
+                    ? "menu-ellipsis-container"
+                    : "menu-item-container"
+                }
+                key={index}
+              >
                 <a target="_blank" className="menu-link" href="/">
-                  {item}
+                  {item.title}
                 </a>
               </li>
             ))}
-
-            <li className="menu-ellipsis-container">
-              <a target="_blank" className="menu-link" href="/">
-                <UserIcons icons={FaEllipsisV} />
-              </a>
-            </li>
           </ul>
         </div>
 
-        {/* <div className="upload-container">
-          <Button className="upload-btn" title="upload" />
-          <Button className="create-btn" title="create" />
-        </div> */}
+        <div className="gif-sticker-container">
+          <a target="_blank" className="stickers-container" href="/">
+            <Button className="stickers-btn" title="stickers" />
+          </a>
+
+          <a target="_blank" className="stickers-container" href="/">
+            <Button className="stickers-btn" title="Gifs" />
+          </a>
+        </div>
 
         {/* <div className="login-container">
           <div className="fauser">

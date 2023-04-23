@@ -22,12 +22,13 @@ const SearchBar = ({
           onChange={(event) => setSearchTerm(event.target.value)}
           placeholder="Search..."
         />
-        <div className="search-icon-container">
-          <UserIcons
+        <div className="search-button-container">
+        <img src="https://giphy.com/static/img/search-icon.svg" width="30" alt='' />
+          {/* <UserIcons
             className="search-icon"
             icons={HiSearch}
             onClick={handleClick}
-          />
+          /> */}
         </div>
       </form>
     </div>
