@@ -4,40 +4,35 @@ import Giphy from "./components/Giphy/Giphy";
 import NavBar from "./components/NavBar/NavBar";
 import Spinner from "./components/Spinner/Spinner";
 import "./App.css";
+import UserIcons from "./commons/Icons";
+import { FaRegWindowClose } from "react-icons/fa";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const API_URL = "https://api.giphy.com/v1/gifs/";
+const API_URL = "https://api.giphy.com/v1/gif/";
 
 const App = () => {
-  const [data, setData] = useState([]);
+  const [giphyData, setGiphyData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [shouldFetchTrending, setShouldFetchTrending] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchGifs = async () => {
       setIsError(false);
       setIsLoading(true);
 
       try {
         let endpoint = "";
 
-        if (shouldFetchTrending) {
-          endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=0&rating=Y&lang=en`;
+        if (searchValue) {
+          endpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=0&rating=Y&lang=en`;
         } else {
-          endpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=${
-            (currentPage - 1) * 25
-          }&rating=Y&lang=en`;
+          endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25offset=0&rating=Y&lang=en`;
         }
 
         const results = await axios.get(endpoint);
-        setData((prevData) =>
-          shouldFetchTrending
-            ? [...prevData, ...results.data.data]
-            : results.data.data
-        );
+        setGiphyData(results.data.data);
       } catch (error) {
         setIsError(true);
         console.error(error);
@@ -46,40 +41,39 @@ const App = () => {
       setIsLoading(false);
     };
 
-    if (shouldFetchTrending) {
-      fetchData();
-    }
-  }, [shouldFetchTrending]);
+    fetchGifs();
+  }, [searchValue]);
 
-  const handleSearch = async () => {
+  const handleChange = async (event) => {
+    setIsError(false);
     setIsLoading(true);
-    setShouldFetchTrending(false);
 
     try {
       const endpoint = `${API_URL}search?api_key=${API_KEY}&q=${searchValue}&_limit=25&rating=Y&lang=en`;
+
       const results = await axios.get(endpoint);
 
-      setData(results.data.data);
-      setCurrentPage(1);
+      setGiphyData(results.data.data);
     } catch (error) {
-      setIsError(true);
       console.error(error);
+      setIsError("Oops! Something went wrong. Please try again later.");
     }
 
     setIsLoading(false);
-    setSearchValue("");
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    handleSearch();
+    handleChange();
   };
 
-  const handleClick = async () => {
-    handleSearch();
+  const handleClick = () => {
+    handleChange();
   };
 
   const loadMoreData = async () => {
+    setIsLoading(true);
+
     try {
       let endpoint = "";
 
@@ -95,11 +89,12 @@ const App = () => {
 
       const results = await axios.get(endpoint);
       const newData = results.data.data;
+      setGiphyData((prevData) => [...prevData, ...newData]);
 
-      setData((prevData) => [...prevData, ...newData]);
       setCurrentPage((prevPage) => prevPage + 1);
     } catch (error) {
-      setData([]);
+      setGiphyData([]);
+
       console.log(error);
     } finally {
       setIsLoading(false);
@@ -118,8 +113,19 @@ const App = () => {
 
       {isLoading ? (
         <Spinner />
+      ) : isError ? (
+        <div className="error-container">
+          <UserIcons className="error-icon" icons={FaRegWindowClose} />
+          <p className="error-message">
+            Oops! Something went wrong. Please try again later.
+          </p>
+        </div>
       ) : (
-        <Giphy data={data} isError={isError} loadMoreData={loadMoreData} />
+        <Giphy
+          giphyData={giphyData}
+          isError={isError}
+          loadMoreData={loadMoreData}
+        />
       )}
     </div>
   );
