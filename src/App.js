@@ -20,16 +20,11 @@ const App = () => {
   useEffect(() => {
     const fetchGifs = async () => {
       setIsError(false);
-      setIsLoading(true);
 
       try {
         let endpoint = "";
 
-        if (searchValue) {
-          endpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=0&rating=Y&lang=en`;
-        } else {
-          endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=0&rating=Y&lang=en`;
-        }
+        endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=0&rating=Y&lang=en`;
 
         const results = await axios.get(endpoint);
         setGiphyData(results.data.data);
@@ -75,15 +70,13 @@ const App = () => {
     try {
       let endpoint = "";
 
-      if (searchValue) {
-        endpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=${
-          currentPage * 25
-        }&rating=Y&lang=en`;
-      } else {
-        endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=${
-          currentPage * 25
-        }&rating=Y&lang=en`;
-      }
+      endpoint = searchValue
+        ? `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=${
+            currentPage * 25
+          }&rating=Y&lang=en`
+        : `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=${
+            currentPage * 25
+          }&rating=Y&lang=en`;
 
       const results = await axios.get(endpoint);
       const newData = results.data.data;
