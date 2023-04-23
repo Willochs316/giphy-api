@@ -8,7 +8,7 @@ import UserIcons from "./commons/Icons";
 import { FaRegWindowClose } from "react-icons/fa";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const API_URL = "https://api.giphy.com/v1/gif/";
+const API_URL = "https://api.giphy.com/v1/gifs/";
 
 const App = () => {
   const [giphyData, setGiphyData] = useState([]);
@@ -28,7 +28,7 @@ const App = () => {
         if (searchValue) {
           endpoint = `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=0&rating=Y&lang=en`;
         } else {
-          endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25offset=0&rating=Y&lang=en`;
+          endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&rating=Y&lang=en`;
         }
 
         const results = await axios.get(endpoint);
@@ -72,8 +72,6 @@ const App = () => {
   };
 
   const loadMoreData = async () => {
-    setIsLoading(true);
-
     try {
       let endpoint = "";
 
@@ -89,12 +87,11 @@ const App = () => {
 
       const results = await axios.get(endpoint);
       const newData = results.data.data;
-      setGiphyData((prevData) => [...prevData, ...newData]);
 
+      setGiphyData((prevData) => [...prevData, ...newData]);
       setCurrentPage((prevPage) => prevPage + 1);
     } catch (error) {
       setGiphyData([]);
-
       console.log(error);
     } finally {
       setIsLoading(false);
