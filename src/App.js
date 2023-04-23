@@ -11,12 +11,14 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = "https://api.giphy.com/v1/gifs/";
 
 const App = () => {
+  // State variables
   const [giphyData, setGiphyData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
 
+  // Fetch data on mount
   useEffect(() => {
     const fetchGifs = async () => {
       setIsError(false);
@@ -32,19 +34,18 @@ const App = () => {
         setIsError(true);
         console.error(error);
       }
-
-      setIsLoading(false);
     };
 
     fetchGifs();
-  }, [searchValue]);
+  }, [searchTerm]);
 
-  const handleChange = async (event) => {
+  // Handle search input and submit
+  const handleSearch = async () => {
     setIsError(false);
     setIsLoading(true);
 
     try {
-      const endpoint = `${API_URL}search?api_key=${API_KEY}&q=${searchValue}&_limit=25&rating=Y&lang=en`;
+      const endpoint = `${API_URL}search?api_key=${API_KEY}&q=${searchTerm}&_limit=25&rating=Y&lang=en`;
 
       const results = await axios.get(endpoint);
 
@@ -57,26 +58,28 @@ const App = () => {
     setIsLoading(false);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    handleChange();
+    handleSearch();
   };
 
-  const handleClick = () => {
-    handleChange();
+  const handleClick = async () => {
+    handleSearch();
   };
 
   const loadMoreData = async () => {
     try {
       let endpoint = "";
 
-      endpoint = searchValue
-        ? `${API_URL}search?q=${searchValue}&api_key=${API_KEY}&limit=25&offset=${
-            currentPage * 25
-          }&rating=Y&lang=en`
-        : `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=${
-            currentPage * 25
-          }&rating=Y&lang=en`;
+      if (searchTerm) {
+        endpoint = `${API_URL}search?q=${searchTerm}&api_key=${API_KEY}&limit=25&offset=${
+          currentPage * 25
+        }&rating=Y&lang=en`;
+      } else {
+        endpoint = `${API_URL}trending?api_key=${API_KEY}&limit=25&offset=${
+          currentPage * 25
+        }&rating=Y&lang=en`;
+      }
 
       const results = await axios.get(endpoint);
       const newData = results.data.data;
@@ -95,8 +98,8 @@ const App = () => {
   return (
     <div className="giphy-container">
       <NavBar
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
         handleSubmit={handleSubmit}
         handleClick={handleClick}
       />

@@ -6,7 +6,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import GiphyGif from "../../assets/png/giphy-gif.gif";
 import GiphyLogo from "../../assets/png/giphy-logo.gif";
 
-const NavBar = ({ searchValue, setSearchValue, handleSubmit, handleClick }) => {
+const NavBar = ({ searchTerm, setSearchTerm, handleSubmit, handleClick }) => {
   return (
     <div id="header-container">
       <div id="navigationbar-container">
@@ -56,8 +56,8 @@ const NavBar = ({ searchValue, setSearchValue, handleSubmit, handleClick }) => {
       </div>
 
       <SearchBar
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
         handleSubmit={handleSubmit}
         handleClick={handleClick}
       />

@@ -5,8 +5,8 @@ import Input from "../../commons/Input";
 import "./SearchBar.css";
 
 const SearchBar = ({
-  searchValue,
-  setSearchValue,
+  searchTerm,
+  setSearchTerm,
   handleSubmit,
   handleClick,
 }) => {
@@ -17,9 +17,9 @@ const SearchBar = ({
           id="search"
           className="search-input"
           type="text"
-          value={searchValue}
+          value={searchTerm}
           name="search-input"
-          onChange={(event) => setSearchValue(event.target.value)}
+          onChange={(event) => setSearchTerm(event.target.value)}
           placeholder="Search..."
         />
         <div className="search-icon-container">
