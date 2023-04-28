@@ -4,7 +4,18 @@ import GifGallery from "./pages/Giphy/GifGallery";
 import Sticker from "./pages/Sticker/Sticker";
 import ErrorPage from "./pages/ErrorPage";
 
-const GifRoute = ({ giphyData, loadMoreData, stickerData, API_KEY,  searchTerm, currentPage, setStickerData, setCurrentPage, setIsLoading, setIsError  }) => {
+const GifRoute = ({
+  giphyData,
+  loadMoreData,
+  stickerData,
+  API_KEY,
+  searchTerm,
+  currentPage,
+  setStickerData,
+  setCurrentPage,
+  setIsLoading,
+  setIsError,
+}) => {
   return (
     <Routes>
       <Route
