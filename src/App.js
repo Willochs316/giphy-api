@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Giphy from "./components/pages/Giphy/Giphy";
+import GifGallery from "./components/pages/Giphy/GifGallery";
 import NavBar from "./components/NavBar/NavBar";
 import Spinner from "./components/Spinner/Spinner";
 import UserIcons from "./commons/Icons";
 import { FaRegWindowClose } from "react-icons/fa";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Sticker from "./components/pages/Sticker/Sticker";
 import ErrorPage from "./components/pages/ErrorPage";
-
+import Sticker from "./components/pages/Sticker/Sticker";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = "https://api.giphy.com/v1/gifs/";
@@ -17,6 +16,7 @@ const API_URL = "https://api.giphy.com/v1/gifs/";
 const App = () => {
   // State variables
   const [giphyData, setGiphyData] = useState([]);
+  const [stickerData, setStickerData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -106,36 +106,49 @@ const App = () => {
         setSearchTerm={setSearchTerm}
         handleSubmit={handleSubmit}
         handleClick={handleClick}
+        setStickerData={setStickerData}
+        API_KEY={API_KEY}
+        setIsError={setIsError}
+        setIsLoading={setIsLoading}
       />
 
-      <Routes>
-        {isLoading ? (
-          <Spinner />
-        ) : isError ? (
-          <div className="error-container">
-            <UserIcons className="error-icon" icons={FaRegWindowClose} />
-            <p className="error-message">
-              Oops! Something went wrong. Please try again later.
-            </p>
-          </div>
-        ) : (
-          <>
-            <Route
-              path="/"
-              element={
-                <Giphy
-                  giphyData={giphyData}
-                  isError={isError}
-                  loadMoreData={loadMoreData}
-                />
-              }
-            />
+      {isLoading ? (
+        <Spinner />
+      ) : isError ? (
+        <div className="error-container">
+          <UserIcons className="error-icon" icons={FaRegWindowClose} />
+          <p className="error-message">
+            Oops! Something went wrong. Please try again later.
+          </p>
+        </div>
+      ) : (
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <GifGallery giphyData={giphyData} loadMoreData={loadMoreData} />
+            }
+          />
 
-            <Route path="/sticker" element={<Sticker />} />
-            <Route path="*" element={<ErrorPage />} />
-          </>
-        )}
-      </Routes>
+          <Route
+            path="/sticker"
+            element={
+              <Sticker
+                stickerData={stickerData}
+                API_KEY={API_KEY}
+                searchTerm={searchTerm}
+                currentPage={currentPage}
+                setStickerData={setStickerData}
+                setCurrentPage={setCurrentPage}
+                setIsLoading={setIsLoading}
+                setIsError={setIsError}
+              />
+            }
+          />
+
+          <Route path="*" element={<ErrorPage />} />
+        </Routes>
+      )}
     </div>
   );
 };

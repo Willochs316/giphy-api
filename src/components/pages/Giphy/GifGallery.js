@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "../../Spinner/Spinner";
-import "./Giphy.css";
+import "./GifGallery.css";
 
-const Giphy = ({ giphyData, loadMoreData }) => {
+const GifGallery = ({ giphyData, loadMoreData }) => {
   return (
     <InfiniteScroll
       dataLength={giphyData.length}
@@ -31,9 +31,9 @@ const Giphy = ({ giphyData, loadMoreData }) => {
   );
 };
 
-Giphy.propTypes = {
+GifGallery.propTypes = {
   giphyData: PropTypes.array.isRequired,
   loadMoreData: PropTypes.func.isRequired,
 };
 
-export default Giphy;
+export default GifGallery;
