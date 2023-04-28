@@ -24,11 +24,11 @@ const SearchBar = ({
   }, [placeholders.length]);
 
   return (
-    <div className="search-bar-container">
-      <form className="search-form" onSubmit={handleSubmit}>
+    <div className="search">
+      <form className="search__form" onSubmit={handleSubmit}>
         <Input
           id="search"
-          className="search-input"
+          className="search__input"
           type="text"
           value={searchTerm}
           name="search-input"
@@ -36,7 +36,7 @@ const SearchBar = ({
           placeholder={placeholders[currentPlaceholder]}
         />
 
-        <button className="search-button-container" onClick={handleClick}>
+        <button className="search__button-container" onClick={handleClick}>
           <img
             src="https://giphy.com/static/img/search-icon.svg"
             width="30"

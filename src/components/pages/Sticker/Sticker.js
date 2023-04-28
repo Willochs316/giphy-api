@@ -80,7 +80,6 @@ const Sticker = ({
 
 Sticker.propTypes = {
   stickerData: PropTypes.array.isRequired,
-  loadMoreStickerData: PropTypes.func.isRequired,
 };
 
 export default Sticker;

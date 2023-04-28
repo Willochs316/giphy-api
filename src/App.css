@@ -19,11 +19,9 @@ body::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  width: 670px;
   width: 847px;
-  min-height: 212px;
   margin: 0 auto;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .error-container {

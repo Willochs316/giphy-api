@@ -50,14 +50,14 @@ const NavBar = ({
 
     try {
       let endpoint = "";
+
+      // the if condition only make a request to the endpoint if searchTerm is truthy
       if (searchTerm) {
         endpoint = `${STICKER_URL}?api_key=${API_KEY}&q=${searchTerm}&_limit=25&rating=Y&lang=en`;
+        const results = await axios.get(endpoint);
+        setStickerData(results.data.data);
+        navigate("/sticker"); // add this line to navigate to the "/sticker" route
       }
-
-      const results = await axios.get(endpoint);
-
-      setStickerData(results.data.data);
-      navigate("/sticker"); // add this line to navigate to the "/sticker" route
     } catch (error) {
       console.error(error);
       setIsError("Oops! Something went wrong. Please try again later.");
