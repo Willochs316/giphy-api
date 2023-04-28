@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import GifGallery from "./components/pages/Giphy/GifGallery";
 import NavBar from "./components/NavBar/NavBar";
 import Spinner from "./components/Spinner/Spinner";
 import UserIcons from "./commons/Icons";
 import { FaRegWindowClose } from "react-icons/fa";
+import GifRoute from "./components/GifRoute";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import ErrorPage from "./components/pages/ErrorPage";
-import Sticker from "./components/pages/Sticker/Sticker";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = "https://api.giphy.com/v1/gifs/";
@@ -122,32 +119,18 @@ const App = () => {
           </p>
         </div>
       ) : (
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <GifGallery giphyData={giphyData} loadMoreData={loadMoreData} />
-            }
-          />
-
-          <Route
-            path="/sticker"
-            element={
-              <Sticker
-                stickerData={stickerData}
-                API_KEY={API_KEY}
-                searchTerm={searchTerm}
-                currentPage={currentPage}
-                setStickerData={setStickerData}
-                setCurrentPage={setCurrentPage}
-                setIsLoading={setIsLoading}
-                setIsError={setIsError}
-              />
-            }
-          />
-
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
+        <GifRoute
+          giphyData={giphyData}
+          loadMoreData={loadMoreData}
+          stickerData={stickerData}
+          API_KEY={API_KEY}
+          searchTerm={searchTerm}
+          currentPage={currentPage}
+          setStickerData={setStickerData}
+          setCurrentPage={setCurrentPage}
+          setIsLoading={setIsLoading}
+          setIsError={setIsError}
+        />
       )}
     </div>
   );
