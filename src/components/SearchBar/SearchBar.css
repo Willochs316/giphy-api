@@ -48,6 +48,22 @@
   background-color: #ffffff;
 }
 
+.search-input::placeholder {
+  text-align: left;
+  list-style: none;
+  color: rgb(166, 166, 166);
+  letter-spacing: 1px;
+  user-select: none;
+  border-radius: 0px;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font: inherit;
+  transform: translateY(0px);
+  animation: 5s ease 0s infinite normal none running gVMIwq;
+}
+
 .search-button-container {
   display: flex;
   align-items: center;
@@ -55,7 +71,6 @@
   text-align: left;
   border-radius: 0px;
   outline: none;
-  text-decoration: none;
   margin: 0px;
   padding: 0px;
   border: 0px;
@@ -95,26 +110,6 @@
   padding: 0px;
   border: 0px;
   font-size: 30px;
-}
-
-.placeholder-container {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  justify-content: center;
-  font-size: inherit;
-  right: 410px;
-  color: rgb(166, 166, 166);
-  z-index: 1000;
-  transform: translateY(0px);
-  animation: 5s ease 0s infinite normal none running gVMIwq;
-  height: 40px;
-  overflow: hidden;
-}
-
-.placeholder-text {
-  outline: 0;
-  border: 0;
 }
 
 @media only screen and (min-width: 414px) and (max-width: 667px) {
@@ -204,26 +199,6 @@
   .search-icon {
     font-size: 28px;
     transform: rotateZ(90deg);
-  }
-
-  .placeholder-container {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    justify-content: center;
-    font-size: inherit;
-    right: 410px;
-    color: rgb(166, 166, 166);
-    z-index: 1000;
-    transform: translateY(0px);
-    animation: 5s ease 0s infinite normal none running gVMIwq;
-    height: 40px;
-    overflow: hidden;
-  }
-
-  .placeholder-text {
-    outline: 0;
-    border: 0;
   }
 }
 
@@ -315,25 +290,5 @@
   .search-icon {
     font-size: 28px;
     transform: rotateZ(90deg);
-  }
-
-  .placeholder-container {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    justify-content: center;
-    font-size: inherit;
-    right: 410px;
-    color: rgb(166, 166, 166);
-    z-index: 1000;
-    transform: translateY(0px);
-    animation: 5s ease 0s infinite normal none running gVMIwq;
-    height: 40px;
-    overflow: hidden;
-  }
-
-  .placeholder-text {
-    outline: 0;
-    border: 0;
   }
 }

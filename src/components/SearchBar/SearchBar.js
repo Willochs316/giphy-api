@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../commons/Input";
 import "./SearchBar.css";
 
@@ -8,6 +8,21 @@ const SearchBar = ({
   handleSubmit,
   handleClick,
 }) => {
+  const [currentPlaceholder, setCurrentPlaceholder] = useState(0);
+  const placeholders = [
+    "Search for GIFs",
+    "Find your favorite GIFs",
+    "Discover trending GIFs",
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentPlaceholder((prev) => (prev + 1) % placeholders.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [placeholders.length]);
+
   return (
     <div className="search-bar-container">
       <form className="search-form" onSubmit={handleSubmit}>
@@ -18,8 +33,9 @@ const SearchBar = ({
           value={searchTerm}
           name="search-input"
           onChange={(event) => setSearchTerm(event.target.value)}
-          placeholder="Search..."
+          placeholder={placeholders[currentPlaceholder]}
         />
+
         <button className="search-button-container" onClick={handleClick}>
           <img
             src="https://giphy.com/static/img/search-icon.svg"
