@@ -24,7 +24,7 @@ const NavBar = ({
     { title: "Reactions", path: "/" },
     { title: "Entertainment", path: "/" },
     { title: "Sports", path: "/" },
-    { title: "Stickers", path: "" },
+    { title: "Stories", path: "/" },
     { title: "Artists", path: "/" },
     {
       title: <UserIcons icons={FaEllipsisV} />,
@@ -35,12 +35,12 @@ const NavBar = ({
   let navigate = useNavigate();
   let location = useLocation();
 
-  const handlePath = () => {
-    if (location.pathname === "/") {
-      setSearchTerm("");
-    }
+  const handleHomeNavigation = () => {
+    setSearchTerm("");
 
-    navigate("/");
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
   };
 
   // Handle search input and submit for stickers
@@ -94,7 +94,7 @@ const NavBar = ({
                 <Link
                   className="menu-link"
                   to={item.path}
-                  onClick={item.path ? handlePath : null}
+                  onClick={item.path ? handleHomeNavigation : null}
                 >
                   {item.title}
                 </Link>
