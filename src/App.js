@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Giphy from "./components/Giphy/Giphy";
+import Giphy from "./components/pages/Giphy/Giphy";
 import NavBar from "./components/NavBar/NavBar";
 import Spinner from "./components/Spinner/Spinner";
 import UserIcons from "./commons/Icons";
 import { FaRegWindowClose } from "react-icons/fa";
 import "./App.css";
+import { Routes, Route } from "react-router-dom";
+import Sticker from "./components/pages/Sticker/Sticker";
+import ErrorPage from "./components/pages/ErrorPage";
+
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 const API_URL = "https://api.giphy.com/v1/gifs/";
@@ -104,22 +108,34 @@ const App = () => {
         handleClick={handleClick}
       />
 
-      {isLoading ? (
-        <Spinner />
-      ) : isError ? (
-        <div className="error-container">
-          <UserIcons className="error-icon" icons={FaRegWindowClose} />
-          <p className="error-message">
-            Oops! Something went wrong. Please try again later.
-          </p>
-        </div>
-      ) : (
-        <Giphy
-          giphyData={giphyData}
-          isError={isError}
-          loadMoreData={loadMoreData}
-        />
-      )}
+      <Routes>
+        {isLoading ? (
+          <Spinner />
+        ) : isError ? (
+          <div className="error-container">
+            <UserIcons className="error-icon" icons={FaRegWindowClose} />
+            <p className="error-message">
+              Oops! Something went wrong. Please try again later.
+            </p>
+          </div>
+        ) : (
+          <>
+            <Route
+              path="/"
+              element={
+                <Giphy
+                  giphyData={giphyData}
+                  isError={isError}
+                  loadMoreData={loadMoreData}
+                />
+              }
+            />
+
+            <Route path="/sticker" element={<Sticker />} />
+            <Route path="*" element={<ErrorPage />} />
+          </>
+        )}
+      </Routes>
     </div>
   );
 };

@@ -1,19 +1,26 @@
 import UserIcons from "../../commons/Icons";
-import { FaEllipsisV, FaUser } from "react-icons/fa";
+import { FaEllipsisV } from "react-icons/fa";
 import "./NavBar.css";
 import Button from "../../commons/Button";
 import SearchBar from "../SearchBar/SearchBar";
-import GiphyGif from "../../assets/png/giphy-logo.gif";
 import GiphyLogo from "../../assets/png/giphy-logo.gif";
 import Svgs from "../../assets/svgs";
+import { Link } from "react-router-dom";
 
-const NavBar = ({ searchTerm, setSearchTerm, handleSubmit, handleClick }) => {
+const NavBar = ({
+  searchTerm,
+  setSearchTerm,
+  handleSubmit,
+  handleClick,
+  handleSearch,
+  handleStickers,
+}) => {
   const menuItems = [
-    { title: "Reactions" },
-    { title: "Entertainment" },
-    { title: "Sports" },
-    { title: "Stickers" },
-    { title: "Artists" },
+    { title: "Reactions", path: "/" },
+    { title: "Entertainment", path: "/" },
+    { title: "Sports", path: "/" },
+    { title: "Stickers", path: "/sticker" },
+    { title: "Artists", path: "/" },
     {
       title: <UserIcons icons={FaEllipsisV} />,
       className: "menu-ellipsis-container",
@@ -23,7 +30,7 @@ const NavBar = ({ searchTerm, setSearchTerm, handleSubmit, handleClick }) => {
   return (
     <div id="header-container">
       <div id="navigationbar-container">
-        <a href="/" target="/" className="logo-container">
+        <a href="/" target="_blank" className="logo-container">
           <Svgs.GiphyLogo className="giphy-logo" />
         </a>
 
@@ -45,31 +52,23 @@ const NavBar = ({ searchTerm, setSearchTerm, handleSubmit, handleClick }) => {
                 }
                 key={index}
               >
-                <a target="_blank" className="menu-link" href="/">
+                <Link className="menu-link" to={item.path}>
                   {item.title}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         </div>
 
         <div className="gif-sticker-container">
-          <a target="_blank" className="stickers-container" href="/">
+          <span className="stickers-container" onClick={handleStickers}>
             <Button className="stickers-btn" title="stickers" />
-          </a>
+          </span>
 
-          <a target="_blank" className="stickers-container" href="/">
-            <Button className="stickers-btn" title="Gifs" />
-          </a>
+          <span className="stickers-container" onClick={handleSearch}>
+            <Button className="stickers-btn" title="GIFs" />
+          </span>
         </div>
-
-        {/* <div className="login-container">
-          <div className="fauser">
-            <UserIcons icons={FaUser} />
-          </div>
-
-          <Button className="login-btn" title="Log in" />
-        </div> */}
       </div>
 
       <SearchBar

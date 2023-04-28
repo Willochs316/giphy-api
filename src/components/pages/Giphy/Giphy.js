@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Spinner from "../Spinner/Spinner";
+import Spinner from "../../Spinner/Spinner";
 import "./Giphy.css";
 
 const Giphy = ({ giphyData, loadMoreData }) => {
@@ -12,15 +12,15 @@ const Giphy = ({ giphyData, loadMoreData }) => {
       hasMore={true}
       loader={<Spinner />}
     >
-      <div className="gifs-container">
+      <div className="gif">
         {giphyData.map((gif, index) => (
           <div
-            className="gif-image-container"
+            className="gif__image-container"
             key={index}
             onClick={() => window.open(gif.images.preview_gif.url)}
           >
             <img
-              className="gif-image"
+              className="gif__image"
               src={gif.images.fixed_height.url}
               alt="gif"
             />
