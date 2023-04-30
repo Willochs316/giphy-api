@@ -3,7 +3,7 @@ import UserIcons from "../../commons/Icons";
 import { FaEllipsisV } from "react-icons/fa";
 import Button from "../../commons/Button";
 import SearchBar from "../SearchBar/SearchBar";
-import GiphyLogo from "../../assets/png/giphy-logo.gif";
+import GiphyLogo from "../../assets/gif/giphy-logo.gif";
 import Svgs from "../../assets/svgs";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./NavBar.css";
@@ -70,12 +70,6 @@ const NavBar = ({
     <header className="navigation">
       <nav className="navigation__content">
         <Link to="/" className="navigation__logo-container">
-          {/* <img
-            className="navigation__giphy-logo"
-            src={GiphyLogo}
-            alt="giphy-logo.gif"
-            object-fit="contain"
-          /> */}
           <Svgs.GiphyLogo className="navigation__giphy-logo" />
         </Link>
 
