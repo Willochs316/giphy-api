@@ -28,7 +28,7 @@ const NavBar = ({
     { title: "Artists", path: "/" },
     {
       title: <UserIcons icons={FaEllipsisV} />,
-      className: "menu-ellipsis-container",
+      className: "navigation__menu-ellipsis-container",
     },
   ];
 
@@ -67,32 +67,38 @@ const NavBar = ({
   };
 
   return (
-    <div id="header-container">
-      <div id="navigationbar-container">
-        <Link to="/" className="logo-container">
-          <Svgs.GiphyLogo className="giphy-logo" />
+    <header className="navigation">
+      <nav className="navigation__content">
+        <Link to="/" className="navigation__logo-container">
+          {/* <img
+            className="navigation__giphy-logo"
+            src={GiphyLogo}
+            alt="giphy-logo.gif"
+            object-fit="contain"
+          /> */}
+          <Svgs.GiphyLogo className="navigation__giphy-logo" />
         </Link>
 
         <img
-          className="gif-logo"
+          className="navigation__gif-small-logo"
           src={GiphyLogo}
           alt="giphy-logo.gif"
           object-fit="contain"
         />
 
-        <div className="navigation-list-container">
-          <ul>
+        <div className="navigation__menu-container">
+          <ul className="navigation__menu-list">
             {menuItems.map((item, index) => (
               <li
                 className={
                   item === "UserIcons"
-                    ? "menu-ellipsis-container"
-                    : "menu-item-container"
+                    ? "navigation__menu-ellipsis-container"
+                    : "navigation__menu-list-item"
                 }
                 key={index}
               >
                 <Link
-                  className="menu-link"
+                  className="navigation__menu-link"
                   to={item.path}
                   onClick={item.path ? handleHomeNavigation : null}
                 >
@@ -103,21 +109,24 @@ const NavBar = ({
           </ul>
         </div>
 
-        <div className="gif-sticker-container">
-          <span className="stickers-container" onClick={handleStickerSearch}>
-            <Button className="stickers-btn" title="stickers" />
+        <div className="navigation__gif--sticker-btn-container">
+          <span
+            className="navigation__stickers-container"
+            onClick={handleStickerSearch}
+          >
+            <Button className="navigation__stickers-btn" title="stickers" />
           </span>
 
           <span
-            className="stickers-container"
+            className="navigation__stickers-container"
             onClick={() => {
               navigate("/");
             }}
           >
-            <Button className="stickers-btn" title="GIFs" />
+            <Button className="navigation__stickers-btn" title="GIFs" />
           </span>
         </div>
-      </div>
+      </nav>
 
       <SearchBar
         searchTerm={searchTerm}
@@ -127,12 +136,13 @@ const NavBar = ({
         setStickerData={setStickerData}
       />
 
-      <div className="explore-container">
-        <p className="explore-contents">
-          Explore <span className="explore-gifs">explore</span> GIFs
+      <div className="navigation__explore-container">
+        <p className="navigation__explore-content">
+          Explore <span className="navigation__explore-gif-text">explore</span>{" "}
+          GIFs
         </p>
       </div>
-    </div>
+    </header>
   );
 };
 
