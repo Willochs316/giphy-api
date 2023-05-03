@@ -36,17 +36,11 @@
   }
 
   &__logo-container {
-    letter-spacing: 0px;
-    text-align: left;
-    list-style: none;
     border-radius: 0px;
     outline: none;
-    text-decoration: none;
-    -webkit-font-smoothing: antialiased;
     margin: 0px;
     padding: 0px;
     border: 0px;
-    font: inherit;
     color: rgb(255, 255, 255);
     display: flex;
     align-items: center;
@@ -58,10 +52,8 @@
   &__giphy-logo {
     letter-spacing: 0px;
     color: rgb(255, 255, 255);
-    border-radius: 0px;
     border: 0px;
     outline: none;
-    -webkit-font-smoothing: antialiased;
     width: 164px;
   }
 
@@ -73,7 +65,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* width: 49.25%; */
     color: rgb(255, 255, 255);
     letter-spacing: 0px;
     text-align: left;
@@ -84,7 +75,7 @@
     border: 0px;
     font: inherit;
     margin: 10px 0px 0px 14px;
-    width: 496px;
+    width: 58.559%;
   }
 
   &__menu-list {
@@ -164,7 +155,6 @@
     text-transform: capitalize;
     border-radius: 0px;
     outline: none;
-    box-sizing: border-box;
     text-decoration: none;
     margin: 0px;
     padding: 0px;
@@ -219,7 +209,6 @@
     list-style: none;
     border-radius: 0px;
     outline: none;
-    box-sizing: border-box;
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
     margin: 0px;
@@ -237,7 +226,6 @@
     text-align: left;
     list-style: none;
     outline: none;
-    box-sizing: border-box;
     text-decoration: none;
     -webkit-font-smoothing: antialiased;
     margin: 0px;
@@ -307,5 +295,214 @@
     font: inherit;
     vertical-align: baseline;
     color: #00e6cc;
+  }
+}
+
+@media only screen and (min-width: 614px) and (max-width: 844px) {
+  .navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0px;
+    text-align: left;
+    margin: 0px;
+    border: 0px;
+    padding: 10px 0 0 0;
+    justify-content: center;
+    width: 614px;
+    max-width: 844px;
+    position: relative;
+    z-index: 499;
+    overflow: hidden;
+
+    &__content {
+      display: flex;
+      color: rgb(255, 255, 255);
+      width: 100%;
+    }
+
+    &__logo-container {
+      border-radius: 0px;
+      outline: none;
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      color: rgb(255, 255, 255);
+      display: flex;
+      align-items: center;
+      margin-top: 12px;
+      transform: translate3d(0px, 0px, 0px);
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    }
+
+    &__giphy-logo {
+      color: rgb(255, 255, 255);
+      border: 0px;
+      outline: none;
+      width: 110px;
+    }
+
+    &__gif-small-logo {
+      display: none;
+    }
+
+    &__menu-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(255, 255, 255);
+      margin: 10px 0px 0px 14px;
+    }
+
+    &__menu-list {
+      color: rgb(255, 255, 255);
+      letter-spacing: 0px;
+      text-align: left;
+      outline: none;
+      text-decoration: none;
+      padding: 0px;
+      border: 0px;
+      font-size: 13px;
+      vertical-align: baseline;
+      list-style: none;
+      margin: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      transform: translateZ(0px);
+      background-position-x: 219px;
+      width: 100%;
+      height: 36px;
+      cursor: pointer;
+    }
+
+    &__menu-list::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      width: 99%;
+      background: linear-gradient(
+          to right,
+          rgb(0, 204, 255),
+          rgb(153, 51, 255) 31%,
+          rgb(230, 70, 182) 52%,
+          rgb(255, 249, 170) 77%,
+          rgb(0, 255, 153),
+          rgb(0, 204, 255)
+        )
+        0% 50% / 200% 50%;
+    }
+
+    &__menu-list-item {
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      align-items: center;
+    }
+
+    &__menu-list-item:hover {
+      background: #3167b7;
+    }
+
+    &__menu-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__menu-ellipsis-container {
+      text-align: center;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgb(255, 255, 255);
+      height: 100%;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__gif--sticker-btn-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgb(255, 255, 255);
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      font-size: 13px;
+      margin-top: 10px;
+      margin-left: 14px;
+    }
+
+    &__stickers-container {
+      margin: 0px;
+      border: 0px;
+      font-size: 13px;
+      color: rgb(255, 255, 255);
+      padding: 5.66px 10.66px;
+      display: inline-block;
+      border-radius: 2px;
+      background-size: 400% !important;
+      background: linear-gradient(
+        263.31deg,
+        rgb(153, 51, 255) -97.49%,
+        rgb(97, 87, 255) 94.14%
+      );
+      margin-right: 4px;
+      background-position-x: -108px;
+    }
+
+    &__stickers-btn {
+      letter-spacing: 0px;
+      text-align: left;
+      list-style: none;
+      border-radius: 0px;
+      outline: none;
+      text-decoration: none;
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      font-size: 13px;
+      color: rgb(255, 255, 255);
+      font-weight: 600;
+      background: 0 0;
+      text-transform: capitalize;
+      cursor: pointer;
+    }
+
+    &__explore-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgb(255, 255, 255);
+      text-align: left;
+      text-decoration: none;
+      padding: 0px;
+      font-size: inherit;
+      margin: 10px 0 15px 0;
+      position: relative;
+      width: 100%;
+    }
+
+    &__explore-content {
+      display: block;
+      font-size: 32px;
+    }
+
+    &__explore-gif-text {
+      text-align: left;
+      margin: 0px;
+      padding: 0px;
+      font: inherit;
+      vertical-align: baseline;
+      color: #00e6cc;
+    }
   }
 }

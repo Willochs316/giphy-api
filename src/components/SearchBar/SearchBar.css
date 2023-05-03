@@ -92,7 +92,6 @@
   border: 0px;
   font: inherit;
   color: rgb(255, 255, 255);
-  /* width: 6.72%; */
   width: 52px;
   height: 52px;
   animation: 2s linear 0s infinite normal none running CNual;
@@ -106,8 +105,118 @@
   z-index: 1000;
   cursor: pointer;
 }
+
+@media only screen and (min-width: 614px) and (max-width: 844px) {
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    border-radius: 0px;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    width: 614px;
+    height: 45px;
+    margin: 12px 0px 0px 0px;
+  }
+  .search__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 52px;
+    position: relative;
+  }
+  .search__input {
+    font-family: inherit;
+    line-height: normal;
+    color: rgb(0, 0, 0);
+    outline: none;
+    padding: 0px 17px;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    border-radius: 0px;
+    font-weight: normal;
+    width: 100%;
+    border: 0px;
+    margin: 0px;
+    z-index: 2;
+    position: relative;
+    height: 52px;
+    letter-spacing: 1px;
+    font-size: 18px;
+    border-radius: 4px;
+    background-color: #ffffff;
+  }
+  .search__input::-moz-placeholder {
+    text-align: left;
+    list-style: none;
+    color: rgb(166, 166, 166);
+    letter-spacing: 1px;
+    -moz-user-select: none;
+         user-select: none;
+    border-radius: 0px;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    transform: translateY(0px);
+    animation: 5s ease 0s infinite normal none running gVMIwq;
+  }
+  .search__input::placeholder {
+    text-align: left;
+    list-style: none;
+    color: rgb(166, 166, 166);
+    letter-spacing: 1px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    border-radius: 0px;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    transform: translateY(0px);
+    animation: 5s ease 0s infinite normal none running gVMIwq;
+  }
+  .search__button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    border-radius: 0px;
+    outline: none;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    font: inherit;
+    color: rgb(255, 255, 255);
+    width: 52px;
+    height: 52px;
+    animation: 2s linear 0s infinite normal none running CNual;
+    background-image: linear-gradient(45deg, rgb(153, 51, 255) 0%, rgb(255, 102, 102) 50%, rgb(153, 51, 255) 100%);
+    background-size: 400%;
+    background-position: 0% 100%;
+    inset: 0px;
+    border-radius: 4px;
+    position: absolute;
+    left: 562px;
+    z-index: 1000;
+    cursor: pointer;
+  }
+}
 @media only screen and (max-width: 375px) {
-  .search .search {
+  .search {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,7 +236,7 @@
     height: 45px;
     margin: 12px 0px 0px 0px;
   }
-  .search .search__form {
+  .search__form {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -135,7 +244,7 @@
     height: 45px;
     position: relative;
   }
-  .search .search__input {
+  .search__input {
     font-family: inherit;
     line-height: normal;
     color: rgb(0, 0, 0);
@@ -157,7 +266,7 @@
     border-radius: 4px;
     background-color: white;
   }
-  .search .search__input::-moz-placeholder {
+  .search__input::-moz-placeholder {
     text-align: left;
     list-style: none;
     color: rgb(166, 166, 166);
@@ -173,7 +282,7 @@
     transform: translateY(0px);
     animation: 5s ease 0s infinite normal none running gVMIwq;
   }
-  .search .search__input::placeholder {
+  .search__input::placeholder {
     text-align: left;
     list-style: none;
     color: rgb(166, 166, 166);
@@ -190,7 +299,7 @@
     transform: translateY(0px);
     animation: 5s ease 0s infinite normal none running gVMIwq;
   }
-  .search .search__button-container {
+  .search__button-container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -217,7 +326,7 @@
     z-index: 1000;
     cursor: pointer;
   }
-  .search .search .search-icon {
+  .search .search-icon {
     font-size: 28px;
     transform: rotateZ(90deg);
   }

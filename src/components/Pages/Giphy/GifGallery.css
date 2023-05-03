@@ -27,4 +27,31 @@
   border-radius: 8px;
   height: 200px;
   width: 200px;
+}
+
+@media only screen and (min-width: 614px) and (max-width: 844px) {
+  .gif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    position: relative;
+    width: 620px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  .gif__image-container {
+    margin: 8px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    position: relative;
+    vertical-align: baseline;
+    position: relative;
+  }
+  .gif__image {
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    height: 190px;
+    width: 190px;
+  }
 }/*# sourceMappingURL=GifGallery.css.map */
