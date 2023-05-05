@@ -38,15 +38,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: rgb(255, 255, 255);
-    border-radius: 0px;
-    outline: none;
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
     font: inherit;
     position: relative;
-    width: 620px;
+    width: 100%;
+    max-width: 620px;
     flex-wrap: wrap;
     overflow: hidden;
   }
@@ -67,5 +62,32 @@
   .sticker__message {
     color: rgb(255, 255, 255);
     font-size: 24px;
+  }
+}
+@media only screen and (min-width: 375px) and (max-width: 613px) {
+  .sticker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: inherit;
+    position: relative;
+    width: 100%;
+    max-width: 351px;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+  .sticker__image-container {
+    margin: 8px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    position: relative;
+    vertical-align: baseline;
+    position: relative;
+  }
+  .sticker__image {
+    color: rgb(255, 255, 255);
+    border-radius: 8px;
+    height: 101px;
+    width: 101px;
   }
 }/*# sourceMappingURL=Sticker.css.map */
