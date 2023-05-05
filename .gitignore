@@ -12,21 +12,9 @@
 /build
 .env
 
-
 # Ignore compiled SCSS files and maps
-src/component/NavBar/NavBar.css.map
-src/component/NavBar/NavBar.scss
-
-src/component/SearchBar/SearchBar.scss
-src/component/SearchBar/SearchBar.css.map
-
-src/component/pages/Giphy/GifGallery.scss
-src/component/pages/Giphy/GifGallery.css.map
-
-src/component/pages/Sticker/Sticker.css.map
-src/component/pages/Sticker/Sticker.scss
-
-
+src/**/*.css.map
+src/**/*.scss
 
 # misc
 .DS_Store
