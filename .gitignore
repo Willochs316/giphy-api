@@ -13,8 +13,8 @@
 .env
 
 # Ignore generated files
-*.css.map
-*.scss
+src/*.css.map
+src/*.scss
 
 # misc
 .DS_Store
