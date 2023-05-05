@@ -18,7 +18,8 @@
 
 # Ignore compiled SCSS files and maps
 src/*.scss
-src/*.css.map
+src/component/*.css.map
+src/component/*.scss.map
 
 
 # misc
