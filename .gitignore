@@ -12,6 +12,10 @@
 /build
 .env
 
+# Ignore generated files
+*.css.map
+*.scss
+
 # misc
 .DS_Store
 .env.local
