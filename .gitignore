@@ -12,9 +12,14 @@
 /build
 .env
 
-# Ignore generated files
-src/*.css.map
+# Ignore compiled SCSS files and maps
+*.scss
+*.css.map
+
+# Ignore compiled SCSS files and maps
 src/*.scss
+src/*.css.map
+
 
 # misc
 .DS_Store
