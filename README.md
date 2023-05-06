@@ -2,6 +2,10 @@
 
 The Giphy API is a web-based service that provides developers with access to millions of GIFs from the Giphy library. The API allows users to search for GIFs by keyword, tag, or category and retrieve them in a variety of formats.
 
+## Instructions
+
+To begin working on the project, start by running `npm start` in your terminal. This will start the development server and the application will be accessible in your web browser at the specified port. From there, you can perform a search for a gif, the search query is executed and the corresponding gif data is retrieved. Clicking on the "Stickers" button returns the sticker data for the searched gif, while clicking on the "Gif" button retrieves the search value data. To navigate back to the home gif page, you can click on the Giphy logo. Happy coding!
+
 ## Getting Started
 
 To get started with the Giphy API, you will need to sign up for a Giphy API key. Once you have your API key, you can make requests to the API using HTTP requests. The Giphy API supports both HTTP GET and POST requests.
