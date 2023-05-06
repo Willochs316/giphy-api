@@ -69,15 +69,18 @@ const NavBar = ({
   return (
     <header className="navigation">
       <nav className="navigation__content">
-        <Link to="/" className="navigation__logo-container">
+        <div
+          className="navigation__logo-container"
+          onClick={handleHomeNavigation}
+        >
           <Svgs.GiphyLogo className="navigation__giphy-logo" />
-        </Link>
+        </div>
 
         <img
           className="navigation__gif-small-logo"
           src={GiphyLogo}
           alt="giphy-logo.gif"
-          object-fit="contain"
+          onClick={handleHomeNavigation}
         />
 
         <div className="navigation__menu-container">

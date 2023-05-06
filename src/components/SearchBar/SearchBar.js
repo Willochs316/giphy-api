@@ -38,6 +38,7 @@ const SearchBar = ({
 
         <button className="search__button-container" onClick={handleClick}>
           <img
+          className='search__search-icon'
             src="https://giphy.com/static/img/search-icon.svg"
             width="30"
             alt=""

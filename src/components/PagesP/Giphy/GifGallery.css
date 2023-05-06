@@ -37,7 +37,7 @@
     font: inherit;
     position: relative;
     width: 100%;
-    max-width: 620px;
+    max-width: 614px;
     flex-wrap: wrap;
     overflow: hidden;
   }
@@ -52,11 +52,11 @@
   .gif__image {
     color: rgb(255, 255, 255);
     border-radius: 8px;
-    height: 190px;
-    width: 190px;
+    height: 188px;
+    width: 188px;
   }
 }
-@media only screen and (min-width: 375px) and (max-width: 613px) {
+@media only screen and (min-width: 321px) and (max-width: 613px) {
   .gif {
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@
     font: inherit;
     position: relative;
     width: 100%;
-    max-width: 351px;
+    max-width: 321px;
     flex-wrap: wrap;
     overflow: hidden;
   }
@@ -79,7 +79,7 @@
   .gif__image {
     color: rgb(255, 255, 255);
     border-radius: 8px;
-    height: 101px;
-    width: 101px;
+    height: 144px;
+    width: 144px;
   }
 }/*# sourceMappingURL=GifGallery.css.map */
