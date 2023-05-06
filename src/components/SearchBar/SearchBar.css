@@ -208,7 +208,7 @@
     cursor: pointer;
   }
 }
-@media only screen and (min-width: 375px) and (max-width: 613px) {
+@media only screen and (min-width: 321px) and (max-width: 613px) {
   .search {
     display: flex;
     align-items: center;
@@ -218,7 +218,7 @@
     margin-right: auto;
     transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
     width: 100%;
-    max-width: 351px;
+    max-width: 321px;
     height: 45px;
     margin: 12px 0px 0px 0px;
   }
@@ -300,7 +300,7 @@
     inset: 0px;
     border-radius: 4px;
     position: absolute;
-    left: 306px;
+    left: 276px;
     z-index: 1000;
     cursor: pointer;
   }
