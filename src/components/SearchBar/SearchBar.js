@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Input from "../../commons/Input";
+import Input from "commons/Input";
 import "./SearchBar.css";
 
 const SearchBar = ({

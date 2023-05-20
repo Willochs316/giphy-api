@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import NavBar from "./components/NavBar/NavBar";
-import Spinner from "./components/Spinner/Spinner";
-import UserIcons from "./commons/Icons";
+import NavBar from "components/NavBar/NavBar";
+import Spinner from "components/Spinner/Spinner";
+import UserIcons from "commons/Icons";
 import { FaRegWindowClose } from "react-icons/fa";
-import GifRoute from "./components/GifRoute";
+import GifRoute from "components/GifRoute";
 import "./App.css";
 
 const API_KEY = process.env.REACT_APP_API_KEY;

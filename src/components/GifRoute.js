@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import GifGallery from "../pages/Giphy/GifGallery";
-import Sticker from "../pages/Sticker/Sticker";
-import ErrorPage from "../pages/ErrorPage";
+import GifGallery from "pages/Giphy/GifGallery";
+import Sticker from "pages/Sticker/Sticker";
+import ErrorPage from "pages/ErrorPage";
 
 const GifRoute = ({
   giphyData,

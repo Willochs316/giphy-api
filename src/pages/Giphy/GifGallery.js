@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Spinner from "../../components/Spinner/Spinner";
+import Spinner from "components/Spinner/Spinner";
 import "./GifGallery.css";
 
 const GifGallery = ({ giphyData, loadMoreData }) => {
