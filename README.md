@@ -1,7 +1,5 @@
 # Giphy API
 
-[![Coverage Status](https://coveralls.io/repos/github/Willochs316/giphy-api/badge.svg?branch=master)](https://coveralls.io/github/Willochs316/giphy-api?branch=master)
-
 The Giphy API is a web-based service that provides developers with access to millions of GIFs from the Giphy library. The API allows users to search for GIFs by keyword, tag, or category and retrieve them in a variety of formats.
 
 ## Instructions
