@@ -37,4 +37,4 @@ This request returns a JSON response containing the data for the 25 most trendin
 For more information on how to use the Giphy API, visit the [official Giphy API documentation](https://developers.giphy.com/docs/api/).
 
 ## Author
-![Willochs Ojigbo](Linkedin: https://www.linkedin.com/in/willochs316/)
+[Willochs Ojigbo](https://www.linkedin.com/in/willochs316/)
