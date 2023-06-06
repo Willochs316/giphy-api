@@ -1,7 +1,7 @@
 # Giphy API
 
 The following article provides an in-depth explanation of this project:
-[Creating GIFs with Giphy API and ReactJS: A Beginner's Guide](https://dev.to/willochs316/creating-gifs-with-giphy-api-and-reactjs-a-beginners-guide-3ak2-temp-slug-9909615)
+[Creating GIFs with Giphy API and ReactJS: A Beginner's Guide](https://dev.to/willochs316/creating-gifs-with-giphy-api-and-reactjs-a-beginners-guide-42d0)
 
 The Giphy API is a web-based service that provides developers with access to millions of GIFs from the Giphy library. The API allows users to search for GIFs by keyword, tag, or category and retrieve them in a variety of formats.
 
